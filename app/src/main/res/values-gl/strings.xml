@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Biblioteca</string>
+    <string name="titulo_principal">Miña Biblioteca</string>
+    <string name="email">Correo Electronico</string>
+    <string name="contraseña">Contrasinal</string>
+    <string name="recordar_email">Lembrar correo</string>
+    <string name="iniciar_sesion">Iniciar sesión</string>
+</resources>
