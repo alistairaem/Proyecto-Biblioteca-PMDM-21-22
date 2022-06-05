@@ -26,9 +26,10 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         cargaVariables();
+        
         btnIniciar.setBackgroundColor(getResources().getColor(R.color.terciario));
-        cargaEmail();
 
+        cargaEmail();
 
         btnIniciar.setOnClickListener(v -> {
             realizaLogin();
