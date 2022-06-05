@@ -14,10 +14,17 @@
         android:theme="@style/Theme.Biblioteca"
         tools:targetApi="31">
         <activity
+            android:name=".MainUser"
+            android:exported="false" />
+        <activity
+            android:name=".MainAdmin"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

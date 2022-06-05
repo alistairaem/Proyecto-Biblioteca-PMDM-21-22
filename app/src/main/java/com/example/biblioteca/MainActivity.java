@@ -26,10 +26,13 @@ public class MainActivity extends AppCompatActivity {
         btnIniciar.setBackgroundColor(getResources().getColor(R.color.terciario));
 
         btnIniciar.setOnClickListener(v -> {
+            Intent intent = new Intent();
             if (txtEmail.getText().toString().equals("admin@admin.com") && txtContraseña.getText().toString().equals("admin")) {
-                Toast.makeText(this, "Bienvenido admin", Toast.LENGTH_SHORT).show();
+                intent.setClass(MainActivity.this, MainAdmin.class);
+                startActivity(intent);
             } else if (txtEmail.getText().toString().equals("user@user.com") && txtContraseña.getText().toString().equals("user")){
-                Toast.makeText(this, "Bienvenido user", Toast.LENGTH_SHORT).show();
+                intent.setClass(MainActivity.this, MainUser.class);
+                startActivity(intent);
             } else {
                 Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
             }
