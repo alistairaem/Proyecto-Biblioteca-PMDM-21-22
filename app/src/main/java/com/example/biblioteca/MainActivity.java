@@ -31,19 +31,23 @@ public class MainActivity extends AppCompatActivity {
 
 
         btnIniciar.setOnClickListener(v -> {
-            Intent intent = new Intent();
-            if (txtEmail.getText().toString().equals("admin@admin.com") && txtContraseña.getText().toString().equals("admin")) {
-                guardaEmail(txtEmail.getText().toString());
-                intent.setClass(MainActivity.this, MainAdmin.class);
-                startActivity(intent);
-            } else if (txtEmail.getText().toString().equals("user@user.com") && txtContraseña.getText().toString().equals("user")){
-                guardaEmail(txtEmail.getText().toString());
-                intent.setClass(MainActivity.this, MainUser.class);
-                startActivity(intent);
-            } else {
-                Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
-            }
+            realizaLogin();
         });
+    }
+
+    private void realizaLogin(){
+        Intent intent = new Intent();
+        if (txtEmail.getText().toString().equals("admin@admin.com") && txtContraseña.getText().toString().equals("admin")) {
+            guardaEmail(txtEmail.getText().toString());
+            intent.setClass(MainActivity.this, MainAdmin.class);
+            startActivity(intent);
+        } else if (txtEmail.getText().toString().equals("user@user.com") && txtContraseña.getText().toString().equals("user")){
+            guardaEmail(txtEmail.getText().toString());
+            intent.setClass(MainActivity.this, MainUser.class);
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void cargaEmail() {
