@@ -5,4 +5,11 @@
     <string name="contraseña">Contraseña</string>
     <string name="recordar_email">Recordar correo</string>
     <string name="iniciar_sesion">Iniciar Sesión</string>
+    <string name="coleccion">Colección</string>
+    <string name="leidos">Libros leídos</string>
+    <string name="prestamos">Préstamos</string>
+    <string name="datosUsuario">Mis datos</string>
+    <string name="bienvenida">Welcome</string>
+    <string name="finSesion">Cerrar Sesión</string>
+    <string name="cerrar_app">Cerrar aplicación</string>
 </resources>
