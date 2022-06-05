@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Biblioteca</string>
+    <string name="titulo_principal">My Library</string>
+    <string name="email">Email</string>
+    <string name="contraseña">Password</string>
+    <string name="recordar_email">Remember email</string>
+    <string name="iniciar_sesion">Log in</string>
 </resources>
