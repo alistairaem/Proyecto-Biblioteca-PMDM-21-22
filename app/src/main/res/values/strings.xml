@@ -10,4 +10,6 @@
     <string name="prestamos">Loans</string>
     <string name="datosUsuario">My data</string>
     <string name="bienvenida">Welcome</string>
+    <string name="finSesion">Log Out</string>
+    <string name="cerrar_app">Close app</string>
 </resources>
