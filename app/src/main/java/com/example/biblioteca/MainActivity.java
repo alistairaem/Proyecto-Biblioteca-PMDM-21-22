@@ -1,7 +1,5 @@
 package com.example.biblioteca;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -10,6 +8,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         cargaVariables();
-        
+
         btnIniciar.setBackgroundColor(getResources().getColor(R.color.terciario));
 
         cargaEmail();
@@ -36,13 +36,13 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void realizaLogin(){
+    private void realizaLogin() {
         Intent intent = new Intent();
         if (txtEmail.getText().toString().equals("admin@admin.com") && txtContraseña.getText().toString().equals("admin")) {
             guardaEmail(txtEmail.getText().toString());
             intent.setClass(MainActivity.this, MainAdmin.class);
             startActivity(intent);
-        } else if (txtEmail.getText().toString().equals("user@user.com") && txtContraseña.getText().toString().equals("user")){
+        } else if (txtEmail.getText().toString().equals("user@user.com") && txtContraseña.getText().toString().equals("user")) {
             guardaEmail(txtEmail.getText().toString());
             intent.setClass(MainActivity.this, MainUser.class);
             startActivity(intent);
@@ -59,20 +59,20 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void guardaEmail(String email){
+    private void guardaEmail(String email) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = prefs.edit();
         if (chkRecordar.isChecked()) {
             editor.putBoolean("recordar", true);
             editor.putString("email", email);
             editor.commit();
-        }else{
+        } else {
             editor.putBoolean("recordar", false);
             editor.commit();
         }
     }
 
-    private void cargaVariables(){
+    private void cargaVariables() {
         txtEmail = findViewById(R.id.txtEmail);
         txtContraseña = findViewById(R.id.txtContraseña);
         btnIniciar = findViewById(R.id.btnIniciar);
