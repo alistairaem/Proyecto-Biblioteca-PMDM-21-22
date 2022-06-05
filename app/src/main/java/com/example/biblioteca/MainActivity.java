@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getSupportActionBar().hide();
+
         cargaVariables();
         btnIniciar.setBackgroundColor(getResources().getColor(R.color.terciario));
         cargaEmail();
