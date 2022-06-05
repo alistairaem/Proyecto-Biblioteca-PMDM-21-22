@@ -9,4 +9,5 @@
     <string name="leidos">Readed books</string>
     <string name="prestamos">Loans</string>
     <string name="datosUsuario">My data</string>
+    <string name="bienvenida">Welcome</string>
 </resources>

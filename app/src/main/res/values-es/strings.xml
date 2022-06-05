@@ -9,4 +9,5 @@
     <string name="leidos">Libros leídos</string>
     <string name="prestamos">Préstamos</string>
     <string name="datosUsuario">Mis datos</string>
+    <string name="bienvenida">Welcome</string>
 </resources>
