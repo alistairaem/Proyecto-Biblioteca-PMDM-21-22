@@ -58,6 +58,7 @@
                 android:id="@+id/txtEmail"
                 android:layout_width="240dp"
                 android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
                 android:hint="@string/email"/>
 
         </LinearLayout>
