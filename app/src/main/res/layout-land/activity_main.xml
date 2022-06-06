@@ -73,9 +73,10 @@
                 android:src="@drawable/candado"/>
 
             <EditText
-                android:id="@+id/txtEmail"
+                android:id="@+id/txtContraseña"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
+                android:inputType="textPassword"
                 android:hint="@string/contraseña"/>
 
         </LinearLayout>

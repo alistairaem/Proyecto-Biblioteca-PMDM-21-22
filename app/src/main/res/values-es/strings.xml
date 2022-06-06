@@ -12,4 +12,5 @@
     <string name="bienvenida">Welcome</string>
     <string name="finSesion">Cerrar Sesión</string>
     <string name="cerrar_app">Cerrar aplicación</string>
+    <string name="errorLogin">Usuario o contraseña incorrectos</string>
 </resources>
