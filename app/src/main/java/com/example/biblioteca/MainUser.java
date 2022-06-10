@@ -1,8 +1,5 @@
 package com.example.biblioteca;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -11,9 +8,13 @@ import android.view.MenuItem;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 public class MainUser extends AppCompatActivity {
 
     LinearLayout contacto;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +22,7 @@ public class MainUser extends AppCompatActivity {
         ColorDrawable colorDrawable = new ColorDrawable(getResources().getColor(R.color.terciario));
         getSupportActionBar().setBackgroundDrawable(colorDrawable);
 
-        if(savedInstanceState == null){
+        if (savedInstanceState == null) {
             bienvenida();
         }
         cargaVariables();
@@ -30,8 +31,6 @@ public class MainUser extends AppCompatActivity {
             Intent intent = new Intent(MainUser.this, Contacto.class);
             startActivity(intent);
         });
-
-
 
 
     }
