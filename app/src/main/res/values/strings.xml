@@ -16,4 +16,5 @@
     <string name="editarLibros">Manage Books</string>
     <string name="telefono">Phone</string>
     <string name="permisoDenegado">Permission Denied</string>
+    <string name="localizacion">Location</string>
 </resources>

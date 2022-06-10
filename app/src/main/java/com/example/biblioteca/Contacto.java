@@ -13,6 +13,7 @@ import android.widget.Toast;
 public class Contacto extends AppCompatActivity {
 
     LinearLayout llamar;
+    LinearLayout mapa;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,19 +25,18 @@ public class Contacto extends AppCompatActivity {
             if (android.os.Build.VERSION.SDK_INT >= 23) {
                 if (checkSelfPermission(android.Manifest.permission.CALL_PHONE)
                         == PackageManager.PERMISSION_GRANTED) {
-                    Intent intent = new Intent(Intent.ACTION_CALL);
-                    intent.setData(Uri.parse("tel:+34 886 12 04 64"));
-                    startActivity(intent);
+                    realizaLlamada();
                 }else{
                     onRequestPermissionsResult(1, new String[]{android.Manifest.permission.CALL_PHONE},
                             new int[]{PackageManager.PERMISSION_GRANTED});
                 }
             }else{
-                Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:+34 886 12 04 64"));
-                startActivity(intent);
+                realizaLlamada();
             }
+        });
 
+        mapa.setOnClickListener(v -> {
+            abreMaps();
         });
     }
 
@@ -46,17 +46,29 @@ public class Contacto extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == 1) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Intent intent = new Intent(Intent.ACTION_CALL);
-                intent.setData(Uri.parse("tel:+34 886 12 04 64"));
-                startActivity(intent);
+                realizaLlamada();
+
             } else {
                 Toast.makeText(this, R.string.permisoDenegado, Toast.LENGTH_SHORT).show();
             }
         }
     }
 
+    private void realizaLlamada(){
+        Intent intent = new Intent(Intent.ACTION_CALL);
+        intent.setData(Uri.parse("tel:+34 886 12 04 64"));
+        startActivity(intent);
+    }
+
+    private void abreMaps(){
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("geo:0,0?q=IES+de+Teis,+Vigo"));
+        startActivity(intent);
+    }
+
 
     private void cargaVariables() {
         llamar = findViewById(R.id.contactoLlamada);
+        mapa = findViewById(R.id.contactoMapa);
     }
 }
