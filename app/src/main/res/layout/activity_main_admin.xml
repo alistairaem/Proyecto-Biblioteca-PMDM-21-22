@@ -51,7 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
-                android:text="@string/leidos"/>
+                android:text="@string/editarLibros"/>
         </LinearLayout>
 
     </LinearLayout>
@@ -101,7 +101,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
-                android:text="@string/datosUsuario"/>
+                android:text="@string/contacto"/>
         </LinearLayout>
 
     </LinearLayout>
