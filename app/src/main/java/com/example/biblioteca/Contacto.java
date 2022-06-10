@@ -30,8 +30,7 @@ public class Contacto extends AppCompatActivity {
                         == PackageManager.PERMISSION_GRANTED) {
                     realizaLlamada();
                 } else {
-                    onRequestPermissionsResult(1, new String[]{android.Manifest.permission.CALL_PHONE},
-                            new int[]{PackageManager.PERMISSION_GRANTED});
+                    requestPermissions(new String[]{android.Manifest.permission.CALL_PHONE}, 1);
                 }
             } else {
                 realizaLlamada();
