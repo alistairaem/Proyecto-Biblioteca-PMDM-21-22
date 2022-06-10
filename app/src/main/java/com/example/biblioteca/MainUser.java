@@ -11,8 +11,6 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 public class MainUser extends AppCompatActivity {
-    private int contador = 0;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -8,9 +8,10 @@
     <string name="coleccion">Collection</string>
     <string name="leidos">Readed books</string>
     <string name="prestamos">Loans</string>
-    <string name="datosUsuario">My data</string>
+    <string name="contacto">Contact</string>
     <string name="bienvenida">Welcome</string>
     <string name="finSesion">Log Out</string>
     <string name="cerrar_app">Close app</string>
     <string name="errorLogin">User or password are wrong</string>
+    <string name="editarLibros">Manage Books</string>
 </resources>
