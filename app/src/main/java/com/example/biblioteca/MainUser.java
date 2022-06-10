@@ -8,10 +8,12 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class MainUser extends AppCompatActivity {
 
+    LinearLayout contacto;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +24,16 @@ public class MainUser extends AppCompatActivity {
         if(savedInstanceState == null){
             bienvenida();
         }
+        cargaVariables();
+
+        contacto.setOnClickListener(v -> {
+            Intent intent = new Intent(MainUser.this, Contacto.class);
+            startActivity(intent);
+        });
+
+
+
+
     }
 
 
@@ -52,5 +64,9 @@ public class MainUser extends AppCompatActivity {
     private void bienvenida() {
         String mensaje = getResources().getString(R.string.bienvenida) + " User";
         Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
+    }
+
+    private void cargaVariables() {
+        contacto = findViewById(R.id.contactoUsuario);
     }
 }

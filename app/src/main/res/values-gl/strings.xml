@@ -14,4 +14,6 @@
     <string name="cerrar_app">Pechar aplicación</string>
     <string name="errorLogin">Usuario ou contrasinal incorrectos</string>
     <string name="editarLibros">Editar libros</string>
+    <string name="telefono">Teléfono</string>
+    <string name="permisoDenegado">Permiso denegado</string>
 </resources>
