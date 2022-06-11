@@ -1,4 +1,4 @@
-package com.example.biblioteca;
+package com.example.biblioteca.activities;
 
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
@@ -11,9 +11,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.biblioteca.R;
+
 public class MainUser extends AppCompatActivity {
 
     LinearLayout contacto;
+    LinearLayout listaLibros;
+    LinearLayout librosUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,17 @@ public class MainUser extends AppCompatActivity {
 
         contacto.setOnClickListener(v -> {
             Intent intent = new Intent(MainUser.this, Contacto.class);
+            startActivity(intent);
+        });
+
+        listaLibros.setOnClickListener(v -> {
+            Intent intent = new Intent(MainUser.this, ListaLibros.class);
+            intent.putExtra("usuario", true);
+            startActivity(intent);
+        });
+
+        librosUsuario.setOnClickListener(v -> {
+            Intent intent = new Intent(MainUser.this, ListaLibrosLeidos.class);
             startActivity(intent);
         });
 
@@ -67,5 +82,7 @@ public class MainUser extends AppCompatActivity {
 
     private void cargaVariables() {
         contacto = findViewById(R.id.contactoUsuario);
+        listaLibros = findViewById(R.id.coleccionUsuario);
+        librosUsuario = findViewById(R.id.librosUsuario);
     }
 }

@@ -1,4 +1,4 @@
-package com.example.biblioteca;
+package com.example.biblioteca.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,9 +8,16 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.biblioteca.R;
+
 public class MainAdmin extends AppCompatActivity {
+
+    LinearLayout contacto;
+    LinearLayout listaLibros;
+    LinearLayout librosAdmin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +29,25 @@ public class MainAdmin extends AppCompatActivity {
         if(savedInstanceState == null){
             bienvenida();
         }
+
+        cargaVariables();
+
+        contacto.setOnClickListener(v -> {
+            Intent intent = new Intent(MainAdmin.this, Contacto.class);
+            startActivity(intent);
+        });
+
+        listaLibros.setOnClickListener(v -> {
+            Intent intent = new Intent(MainAdmin.this, ListaLibros.class);
+            intent.putExtra("usuario", false);
+            startActivity(intent);
+        });
+
+        librosAdmin.setOnClickListener(v -> {
+            Intent intent = new Intent(MainAdmin.this, ListaLibros.class);
+            intent.putExtra("usuario", false);
+            startActivity(intent);
+        });
     }
 
 
@@ -52,5 +78,11 @@ public class MainAdmin extends AppCompatActivity {
     private void bienvenida() {
         String mensaje = getResources().getString(R.string.bienvenida) + " Admin";
         Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
+    }
+
+    private void cargaVariables() {
+        contacto = findViewById(R.id.contactoAdmin);
+        listaLibros = findViewById(R.id.coleccionAdmin);
+        librosAdmin = findViewById(R.id.librosAdmin);
     }
 }

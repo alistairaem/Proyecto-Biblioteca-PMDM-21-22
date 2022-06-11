@@ -17,4 +17,16 @@
     <string name="telefono">Teléfono</string>
     <string name="permisoDenegado">Permiso denegado</string>
     <string name="localizacion">Localización</string>
+    <string name="titulo">Title</string>
+    <string name="autor">Author</string>
+    <string name="genero">Gender</string>
+    <string name="icono">Icon</string>
+    <string name="añadirLibro">Add Book</string>
+    <string name="subgenero">Sub-Gender</string>
+    <string name="nuevo_libro">New Book</string>
+    <string name="guardar">Save</string>
+    <string name="camposObligatorios">All fields are requiered</string>
+    <string name="marcarLeido">Set as readed</string>
+    <string name="verDetalles">Show Details</string>
+    <string name="librosLeidos">Readed Books</string>
 </resources>

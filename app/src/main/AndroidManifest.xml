@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.biblioteca">
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,16 +18,25 @@
         android:theme="@style/Theme.Biblioteca"
         tools:targetApi="31">
         <activity
-            android:name=".Contacto"
+            android:name=".activities.ListaLibrosLeidos"
             android:exported="false" />
         <activity
-            android:name=".MainUser"
+            android:name=".activities.NuevoLibro"
             android:exported="false" />
         <activity
-            android:name=".MainAdmin"
+            android:name=".activities.ListaLibros"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.Contacto"
+            android:exported="false" />
+        <activity
+            android:name=".activities.MainUser"
+            android:exported="false" />
+        <activity
+            android:name=".activities.MainAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,8 +45,5 @@
             </intent-filter>
         </activity>
     </application>
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
 </manifest>

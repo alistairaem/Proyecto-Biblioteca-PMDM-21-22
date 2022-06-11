@@ -1,4 +1,4 @@
-package com.example.biblioteca;
+package com.example.biblioteca.activities;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -9,6 +9,8 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.biblioteca.R;
 
 public class Contacto extends AppCompatActivity {
 

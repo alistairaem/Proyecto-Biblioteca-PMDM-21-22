@@ -1,4 +1,4 @@
-package com.example.biblioteca;
+package com.example.biblioteca.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.biblioteca.R;
 
 public class MainActivity extends AppCompatActivity {
 
