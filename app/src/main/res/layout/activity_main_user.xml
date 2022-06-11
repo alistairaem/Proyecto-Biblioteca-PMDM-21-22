@@ -85,7 +85,7 @@
 
         <!-- Datos usuario -->
         <LinearLayout
-            android:id="@+id/datosUsuario"
+            android:id="@+id/contactoUsuario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"

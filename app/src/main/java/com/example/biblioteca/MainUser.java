@@ -1,16 +1,19 @@
 package com.example.biblioteca;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 public class MainUser extends AppCompatActivity {
+
+    LinearLayout contacto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,9 +22,17 @@ public class MainUser extends AppCompatActivity {
         ColorDrawable colorDrawable = new ColorDrawable(getResources().getColor(R.color.terciario));
         getSupportActionBar().setBackgroundDrawable(colorDrawable);
 
-        if(savedInstanceState == null){
+        if (savedInstanceState == null) {
             bienvenida();
         }
+        cargaVariables();
+
+        contacto.setOnClickListener(v -> {
+            Intent intent = new Intent(MainUser.this, Contacto.class);
+            startActivity(intent);
+        });
+
+
     }
 
 
@@ -52,5 +63,9 @@ public class MainUser extends AppCompatActivity {
     private void bienvenida() {
         String mensaje = getResources().getString(R.string.bienvenida) + " User";
         Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
+    }
+
+    private void cargaVariables() {
+        contacto = findViewById(R.id.contactoUsuario);
     }
 }

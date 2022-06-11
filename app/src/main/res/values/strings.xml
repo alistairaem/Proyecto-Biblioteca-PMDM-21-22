@@ -14,4 +14,7 @@
     <string name="cerrar_app">Close app</string>
     <string name="errorLogin">User or password are wrong</string>
     <string name="editarLibros">Manage Books</string>
+    <string name="telefono">Phone</string>
+    <string name="permisoDenegado">Permission Denied</string>
+    <string name="localizacion">Location</string>
 </resources>
