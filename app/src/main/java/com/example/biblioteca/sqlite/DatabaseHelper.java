@@ -45,6 +45,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return id;
     }
 
+    // Devolver un libro por id
+    public Libro getLibro(long id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String sql = "SELECT * FROM Libros WHERE id = " + id;
+        Cursor cursor = db.rawQuery(sql, null);
+        Libro libro = new Libro();
+        if (cursor.moveToFirst()) {
+            libro.setId(cursor.getLong(0));
+            libro.setTitulo(cursor.getString(1));
+            libro.setAutor(cursor.getString(2));
+            libro.setGenero(cursor.getString(3));
+            libro.setSubgenero(cursor.getString(4));
+            libro.setLeido(cursor.getInt(5));
+        }
+        cursor.close();
+        db.close();
+        return libro;
+    }
+
     // Devuelve todos los libros
     public Libro[] getAllLibros() {
         SQLiteDatabase db = this.getReadableDatabase();

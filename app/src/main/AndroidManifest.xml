@@ -18,6 +18,9 @@
         android:theme="@style/Theme.Biblioteca"
         tools:targetApi="31">
         <activity
+            android:name=".activities.DetallesLibro"
+            android:exported="false" />
+        <activity
             android:name=".activities.ListaLibrosLeidos"
             android:exported="false" />
         <activity

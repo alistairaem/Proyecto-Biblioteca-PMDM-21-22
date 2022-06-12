@@ -106,6 +106,10 @@ public class ListaLibros extends AppCompatActivity {
                 intent.setClass(this, ListaLibrosLeidos.class);
                 startActivity(intent);
                 return true;
+            case R.id.verDetalles:
+                intent.setClass(this, DetallesLibro.class);
+                intent.putExtra("id", libros[posicion].getId());
+                startActivity(intent);
             default:
                 return super.onContextItemSelected(item);
         }

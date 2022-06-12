@@ -33,4 +33,7 @@
     <string name="mensajeLogin">"You're logged as "</string>
     <string name="libroAñadido">Book Added</string>
     <string name="cancelado">Operation Cancelled</string>
+    <string name="leido">Readed</string>
+    <string name="detalles_libro">Book Details</string>
+    <string name="volver">Back</string>
 </resources>
