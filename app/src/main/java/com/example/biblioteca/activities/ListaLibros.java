@@ -26,6 +26,7 @@ public class ListaLibros extends AppCompatActivity {
     private LinearLayout fila;
     private ListView lvLibros;
     private Libro[] libros;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +39,7 @@ public class ListaLibros extends AppCompatActivity {
 
         cargaVariables();
 
-        if (usuario){
+        if (usuario) {
             registerForContextMenu(lvLibros);
         }
 
@@ -46,7 +47,6 @@ public class ListaLibros extends AppCompatActivity {
                 libros);
         lvLibros.setAdapter(adaptador);
     }
-
 
 
     @Override
@@ -87,7 +87,7 @@ public class ListaLibros extends AppCompatActivity {
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-        MenuInflater inflater=getMenuInflater();
+        MenuInflater inflater = getMenuInflater();
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
         String elemento = libros[info.position].getTitulo();
         menu.setHeaderTitle(elemento);
@@ -118,17 +118,18 @@ public class ListaLibros extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 // Recarga la lista
                 Intent intent = new Intent(this, ListaLibros.class);
-                intent.putExtra("usuario", false);
-                Toast.makeText(this, "Libro Añadido", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.libroAñadido), Toast.LENGTH_SHORT).show();
                 startActivity(intent);
+            } else if (resultCode == RESULT_CANCELED) {
+                Toast.makeText(this, getString(R.string.cancelado), Toast.LENGTH_SHORT).show();
             }
         }
     }
 
-    private void cargaVariables(){
+    private void cargaVariables() {
         DatabaseHelper db = new DatabaseHelper(this);
         lvLibros = findViewById(R.id.lvLibros);
         fila = findViewById(R.id.filaLibro);
-        libros = db.getAllLibros(); ;
+        libros = db.getAllLibros();
     }
 }
