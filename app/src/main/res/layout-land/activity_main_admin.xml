@@ -51,7 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
-                android:text="@string/leidos"/>
+                android:text="@string/editarLibros"/>
         </LinearLayout>
 
     </LinearLayout>
@@ -83,9 +83,9 @@
                 android:text="@string/prestamos"/>
         </LinearLayout>
 
-        <!-- Datos Admin -->
+        <!-- Contacto Admin -->
         <LinearLayout
-            android:id="@+id/datosAdmin"
+            android:id="@+id/contactoAdmin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"

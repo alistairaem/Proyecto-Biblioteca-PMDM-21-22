@@ -83,7 +83,7 @@
                 android:text="@string/prestamos"/>
         </LinearLayout>
 
-        <!-- Datos usuario -->
+        <!-- Contacto usuario -->
         <LinearLayout
             android:id="@+id/contactoUsuario"
             android:layout_width="wrap_content"

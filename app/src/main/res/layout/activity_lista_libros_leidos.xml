@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fondoPantalla7"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@color/principal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/librosLeidos"
+        android:textSize="35sp"
+        android:textColor="@color/cuaternario"
+        android:textStyle="bold"/>
+
+    <ListView
+        android:id="@+id/lvLibros"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/secundario"
+        android:divider="@color/terciario"
+        android:dividerHeight="2dp"
+        android:layout_margin="20dp"/>
+
+</LinearLayout>
