@@ -119,6 +119,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return libros;
     }
 
+    // Devuelve un String array de todos los titulos de los libros
+    public String[] getTitulos() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String sql = "SELECT titulo FROM Libros";
+        Cursor cursor = db.rawQuery(sql, null);
+        String[] titulos = new String[cursor.getCount()];
+        int i = 0;
+        while (cursor.moveToNext()) {
+            titulos[i] = cursor.getString(0);
+            i++;
+        }
+        cursor.close();
+        db.close();
+        return titulos;
+    }
+
     // Crear un prestamo
     public long createPrestamo(Prestamo prestamo) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -126,11 +142,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put("fechaInicio", prestamo.getFechaInicio());
         values.put("fechaFin", prestamo.getFechaFin());
         values.put("finalizado", prestamo.getFinalizado());
-        values.put("libros", prestamo.getLibro().getId());
+        values.put("libro", prestamo.getLibro());
 
         long id = db.insert("Prestamos", null, values);
         db.close();
         return id;
+    }
+
+    // Devuelve todos los prestamos
+    public Prestamo[] getAllPrestamos() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String sql = "SELECT * FROM Prestamos";
+        Cursor cursor = db.rawQuery(sql, null);
+        Prestamo[] prestamos = new Prestamo[cursor.getCount()];
+        int i = 0;
+        while (cursor.moveToNext()) {
+            Prestamo prestamo = new Prestamo();
+            prestamo.setId(cursor.getLong(0));
+            prestamo.setFechaInicio(cursor.getString(1));
+            prestamo.setFechaFin(cursor.getString(2));
+            prestamo.setFinalizado(cursor.getInt(3));
+            prestamo.setLibro(cursor.getString(4));
+            prestamos[i] = prestamo;
+            i++;
+        }
+        cursor.close();
+        db.close();
+        return prestamos;
+    }
+
+    //Finaliza un prestamo
+    public void finalizarPrestamo(long id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("finalizado", 1);
+        db.update("Prestamos", values, "id = ?", new String[] { String.valueOf(id) });
+        db.close();
     }
 }
 

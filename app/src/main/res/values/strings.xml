@@ -36,4 +36,10 @@
     <string name="leido">Readed</string>
     <string name="detalles_libro">Book Details</string>
     <string name="volver">Back</string>
+    <string name="añadirPrestamo">Add Loan</string>
+    <string name="prestamoAñadido">Loan created</string>
+    <string name="finalizarPrestamo">Finish Loan</string>
+    <string name="nuevo_prestamo">New Loan</string>
+    <string name="fechaInicio">Starting Date</string>
+    <string name="fechaFin">End Date</string>
 </resources>

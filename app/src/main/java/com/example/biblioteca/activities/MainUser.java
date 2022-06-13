@@ -22,6 +22,7 @@ public class MainUser extends AppCompatActivity {
     LinearLayout contacto;
     LinearLayout listaLibros;
     LinearLayout librosUsuario;
+    LinearLayout prestamosUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,10 +53,12 @@ public class MainUser extends AppCompatActivity {
             Intent intent = new Intent(MainUser.this, ListaLibrosLeidos.class);
             startActivity(intent);
         });
-
-
+        prestamosUsuario.setOnClickListener(v -> {
+            Intent intent = new Intent(MainUser.this, ListaPrestamos.class);
+            intent.putExtra("usuario", true);
+            startActivity(intent);
+        });
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -125,5 +128,6 @@ public class MainUser extends AppCompatActivity {
         contacto = findViewById(R.id.contactoUsuario);
         listaLibros = findViewById(R.id.coleccionUsuario);
         librosUsuario = findViewById(R.id.librosUsuario);
+        prestamosUsuario = findViewById(R.id.prestamosUsuario);
     }
 }

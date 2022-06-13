@@ -4,16 +4,16 @@ public class Prestamo {
     private long id;
     private String fechaInicio;
     private String fechaFin;
-    private boolean finalizado;
-    private Libro libro;
+    private int finalizado;
+    private String libro;
 
     public Prestamo() {
     }
 
-    public Prestamo(String fechaInicio, String fechaFin, Libro libro) {
+    public Prestamo(String fechaInicio, String fechaFin, String libro) {
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
-        this.finalizado = false;
+        this.finalizado = 0;
         this.libro = libro;
     }
 
@@ -41,19 +41,19 @@ public class Prestamo {
         this.fechaFin = fechaFin;
     }
 
-    public boolean getFinalizado() {
+    public int getFinalizado() {
         return finalizado;
     }
 
-    public void setFinalizado(boolean finalizado) {
+    public void setFinalizado(int finalizado) {
         this.finalizado = finalizado;
     }
 
-    public Libro getLibro() {
+    public String getLibro() {
         return libro;
     }
 
-    public void setLibro(Libro libro) {
+    public void setLibro(String libro) {
         this.libro = libro;
     }
 }

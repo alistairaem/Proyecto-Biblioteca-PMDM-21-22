@@ -2,108 +2,121 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@color/principal"
     android:gravity="center"
-    android:background="@color/principal">
+    android:orientation="vertical">
 
-    <!-- Menu Superior-->
-    <LinearLayout
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_marginBottom="80dp">
-        <!-- Coleccion -->
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
         <LinearLayout
-            android:id="@+id/coleccionAdmin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center_horizontal"
-            android:layout_marginRight="110dp">
-
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_margin="6dp"
-                android:src="@drawable/coleccion"/>
-            <TextView
-                android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!-- Menu Superior-->
+            <LinearLayout
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="@string/coleccion"/>
-        </LinearLayout>
+                android:layout_marginBottom="80dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <!-- Coleccion -->
+                <LinearLayout
+                    android:id="@+id/coleccionAdmin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="110dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
 
-        <!-- Libros leidos -->
-        <LinearLayout
-            android:id="@+id/librosAdmin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center_horizontal">
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="6dp"
+                        android:src="@drawable/coleccion" />
 
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_margin="6dp"
-                android:src="@drawable/mis_libros"/>
-            <TextView
-                android:layout_width="wrap_content"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/coleccion"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <!-- Libros leidos -->
+                <LinearLayout
+                    android:id="@+id/librosAdmin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="6dp"
+                        android:src="@drawable/mis_libros" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/editarLibros"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Menu inferior -->
+            <LinearLayout
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="@string/editarLibros"/>
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <!-- Prestamos -->
+                <LinearLayout
+                    android:id="@+id/prestamosAdmin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="125dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="6dp"
+                        android:src="@drawable/libro_prestamo" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/prestamos"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <!-- Contacto Admin -->
+                <LinearLayout
+                    android:id="@+id/contactoAdmin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="6dp"
+                        android:src="@drawable/usuario" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/contacto"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+            </LinearLayout>
         </LinearLayout>
-
-    </LinearLayout>
-
-    <!-- Menu inferior -->
-    <LinearLayout
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical">
-        <!-- Prestamos -->
-        <LinearLayout
-            android:id="@+id/prestamosAdmin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center_horizontal"
-            android:layout_marginRight="125dp">
-
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_margin="6dp"
-                android:src="@drawable/libro_prestamo"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="@string/prestamos"/>
-        </LinearLayout>
-
-        <!-- Contacto Admin -->
-        <LinearLayout
-            android:id="@+id/contactoAdmin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center_horizontal"
-            android:padding="5dp">
-
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_margin="6dp"
-                android:src="@drawable/usuario"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="@string/contacto"/>
-        </LinearLayout>
-
-    </LinearLayout>
-
+    </ScrollView>
 </LinearLayout>

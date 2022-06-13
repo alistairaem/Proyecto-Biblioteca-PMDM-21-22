@@ -22,6 +22,7 @@ public class MainAdmin extends AppCompatActivity {
     LinearLayout contacto;
     LinearLayout listaLibros;
     LinearLayout librosAdmin;
+    LinearLayout prestamosAdmin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,11 @@ public class MainAdmin extends AppCompatActivity {
 
         librosAdmin.setOnClickListener(v -> {
             Intent intent = new Intent(MainAdmin.this, ListaLibros.class);
+            intent.putExtra("usuario", false);
+            startActivity(intent);
+        });
+        prestamosAdmin.setOnClickListener(v -> {
+            Intent intent = new Intent(MainAdmin.this, ListaPrestamos.class);
             intent.putExtra("usuario", false);
             startActivity(intent);
         });
@@ -124,5 +130,6 @@ public class MainAdmin extends AppCompatActivity {
         contacto = findViewById(R.id.contactoAdmin);
         listaLibros = findViewById(R.id.coleccionAdmin);
         librosAdmin = findViewById(R.id.librosAdmin);
+        prestamosAdmin = findViewById(R.id.prestamosAdmin);
     }
 }

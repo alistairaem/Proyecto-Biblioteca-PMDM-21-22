@@ -1,5 +1,8 @@
 package com.example.biblioteca.activities;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -13,47 +16,47 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.biblioteca.R;
 import com.example.biblioteca.adaptadores.AdaptadorListaLibros;
+import com.example.biblioteca.adaptadores.AdaptadorListaPrestamos;
 import com.example.biblioteca.entities.Libro;
+import com.example.biblioteca.entities.Prestamo;
 import com.example.biblioteca.sqlite.DatabaseHelper;
 
-public class ListaLibros extends AppCompatActivity {
+public class ListaPrestamos extends AppCompatActivity {
     private boolean usuario;
     private LinearLayout fila;
-    private ListView lvLibros;
-    private Libro[] libros;
+    private ListView lvPrestamos;
+    private Prestamo[] prestamos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista_libros);
+        setContentView(R.layout.activity_lista_prestamos);
         ColorDrawable colorDrawable = new ColorDrawable(getResources().getColor(R.color.terciario));
         getSupportActionBar().setBackgroundDrawable(colorDrawable);
+        cargaVariables();
 
 
         usuario = getIntent().getBooleanExtra("usuario", true);
-
-        cargaVariables();
-
-        if (usuario) {
-            registerForContextMenu(lvLibros);
+        if (!usuario) {
+            registerForContextMenu(lvPrestamos);
         }
 
-        AdaptadorListaLibros adaptador = new AdaptadorListaLibros(this, R.layout.layout_lista_libros,
-                libros);
-        lvLibros.setAdapter(adaptador);
+        AdaptadorListaPrestamos adaptador = new AdaptadorListaPrestamos(this, R.layout.layout_lista_prestamos,
+                prestamos);
+        lvPrestamos.setAdapter(adaptador);
+
+
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        if (usuario) {
-            getMenuInflater().inflate(R.menu.menu, menu);
+        if (!usuario) {
+            getMenuInflater().inflate(R.menu.prestamo_admin, menu);
         } else {
-            getMenuInflater().inflate(R.menu.libro_admin, menu);
+            getMenuInflater().inflate(R.menu.menu, menu);
         }
         return true;
     }
@@ -70,11 +73,10 @@ public class ListaLibros extends AppCompatActivity {
                 //Finaliza app
                 finishAffinity();
                 return true;
-            case R.id.añadeLibro:
+            case R.id.añadePrestamo:
                 // Start activity for result
-                Intent i = new Intent(this, NuevoLibro.class);
+                Intent i = new Intent(this, NuevoPrestamo.class);
                 startActivityForResult(i, 1);
-
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -82,17 +84,15 @@ public class ListaLibros extends AppCompatActivity {
         }
     }
 
-    // Menu contextual para cada libro
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
         MenuInflater inflater = getMenuInflater();
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
-        String elemento = libros[info.position].getTitulo();
+        String elemento = prestamos[info.position].getLibro();
         menu.setHeaderTitle(elemento);
-        inflater.inflate(R.menu.libro_contextual, menu);
+        inflater.inflate(R.menu.prestamo_contextual, menu);
     }
-
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
@@ -100,15 +100,13 @@ public class ListaLibros extends AppCompatActivity {
         DatabaseHelper db = new DatabaseHelper(this);
         int posicion = info.position;
         switch (item.getItemId()) {
-            case R.id.marcaLeido:
-                db.marcarLeido(libros[posicion].getId());
-                intent.setClass(this, ListaLibrosLeidos.class);
+            case R.id.finalizarPrestamo:
+                db.finalizarPrestamo(prestamos[posicion].getId());
+                finish();
+                intent.setClass(this, ListaPrestamos.class);
+                intent.putExtra("usuario", false);
                 startActivity(intent);
                 return true;
-            case R.id.verDetalles:
-                intent.setClass(this, DetallesLibro.class);
-                intent.putExtra("id", libros[posicion].getId());
-                startActivity(intent);
             default:
                 return super.onContextItemSelected(item);
         }
@@ -121,8 +119,8 @@ public class ListaLibros extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 // Recarga la lista
                 finish();
-                Intent intent = new Intent(this, ListaLibros.class);
-                Toast.makeText(this, getString(R.string.libroAñadido), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, ListaPrestamos.class);
+                Toast.makeText(this, getString(R.string.prestamoAñadido), Toast.LENGTH_SHORT).show();
                 intent.putExtra("usuario", false);
                 startActivity(intent);
             } else if (resultCode == RESULT_CANCELED) {
@@ -133,8 +131,8 @@ public class ListaLibros extends AppCompatActivity {
 
     private void cargaVariables() {
         DatabaseHelper db = new DatabaseHelper(this);
-        lvLibros = findViewById(R.id.lvLibros);
+        lvPrestamos = findViewById(R.id.lvPrestamos);
         fila = findViewById(R.id.filaLibro);
-        libros = db.getAllLibros();
+        prestamos = db.getAllPrestamos();
     }
 }

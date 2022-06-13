@@ -36,4 +36,9 @@
     <string name="leido">Lído</string>
     <string name="detalles_libro">Detalles Libro</string>
     <string name="volver">Volver</string>
+    <string name="añadirPrestamo">Add Loan</string>
+    <string name="prestamoAñadido">Loan created</string>
+    <string name="finalizarPrestamo">Finish Loan</string>
+    <string name="nuevo_prestamo">New Loan</string>
+    <string name="fechaInicio">Starting Date</string>
 </resources>

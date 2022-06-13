@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/añadePrestamo" android:title="@string/añadirPrestamo"/>
+    <item android:id="@+id/finSesion" android:title="@string/finSesion"/>
+    <item android:id="@+id/finApp" android:title="@string/cerrar_app"/>
+</menu>
